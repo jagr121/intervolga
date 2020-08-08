@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<title>База данных стран мира</title>
+
+</head>
+
+<body>
+
+<header>
+	<img src="image/img5.png" class="header">
+</header>
+
+<!---Добавление новой страны---->
+<p class="my-h3">
+	<a class="btn btn-secondary btn-lg" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+		Добавление новой страны
+	</a>
+</p>
+<div class="collapse multi-collapse" id="multiCollapseExample1">
+	<div class="my-card card-body">
+		<div class="container">
+			<form id="databaseForm" method="post" >
+			  <div class="form-row">
+				<div class="form-group col-md-6">
+				  <label for="name" class="my-name-form">Название страны</label>
+				  <input type="text" class="form-control" name="name" id="name" placeholder="Russia">
+				</div>
+				<div class="form-group col-md-6">
+				  <label for="fullname" class="my-name-form">Полное название страны</label>
+				  <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Russian Federation">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="area" class="my-name-form">Площадь</label>
+					<input type="text" class="form-control" name="area" id="area" onkeyup="this.value = this.value.replace(/[^\d]/g,'')" placeholder="17125191">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="population" class="my-name-form">Численность населения</label>
+					<input type="text" class="form-control" name="population" id="population" onkeyup="this.value = this.value.replace(/[^\d]/g,'')" placeholder="146748590">
+				</div>
+			  </div>
+			  <button type="button" id="send" class="btn btn-outline-secondary">Добавить</button>
+			</form>
+			<div id="errorMess"></div>
+		</div>
+	</div>
+</div>
+
+<!---Вывод списка стран из БД-------->
+
+
+<div class="my-border">
+	<h3 class="my-h3">Список стран</h3>
+</div>
+<form>
+	<table class="table table-bordered">
+	  <thead>
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Название страны</th>
+			  <th scope="col">Полное название страны</th>
+			  <th scope="col">Площадь</th>
+			  <th scope="col">Численность населения</th>
+			</tr>
+	  </thead>
+	  <tbody id="table_list">
+	  </tbody>
+	</table>
+</form>
+
+<!---Подключение скриптов-------->
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+
+<script type="text/javascript" src="js/output.js"></script> <!---скрипт вывода стран в таблицу---->
+<script type="text/javascript" src="js/input.js"></script> <!---скрипт добавление страны в БД---->
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
